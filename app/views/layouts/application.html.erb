@@ -21,13 +21,11 @@
           <%# ボタンここから %>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <% if user_signed_in? %>
-              <div class="nav__right"> 
-                <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: "btn btn-outline-danger me-md-2" %>
-                <%= link_to "新規投稿", new_post_path, class: "btn btn-outline-primary" %>
-              </div> 
+              <%= button_to "ログアウト", destroy_user_session_path,method: :delete, class: "btn btn-outline-danger me-md-2" %>
+              <%= link_to "新規投稿", new_post_path, class: "btn btn-outline-primary" %>
             <% else  %>
-              <%= link_to "ログイン", user_session_path, class: "btn btn-outline-danger me-md-2" %>
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
+              <%= link_to "ログイン", user_session_path, class: "btn btn-outline-warning me-md-2" %>
+              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-info" %>
             <% end %>
           </div>
           <%# ボタンここまで %>
