@@ -13,15 +13,22 @@
   </head>
 
   <body>
-      <nav class="navbar navbar-light bg-success">
+      <nav class="navbar navbar-light bg-white">
         <div class="container">
           <a class="navbar-brand" href="/">
             <img src="/assets/logo.png" alt="" width="100" height="40">
           </a>
           <%# ボタンここから %>
           <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-light me-md-2" type="button">Button</button>
-            <button class="btn btn-primary" type="button">Button</button>
+            <% if user_signed_in? %>
+              <div class="nav__right"> 
+                <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: "btn btn-outline-danger me-md-2" %>
+                <%= link_to "新規投稿", new_post_path, class: "btn btn-outline-primary" %>
+              </div> 
+            <% else  %>
+              <%= link_to "ログイン", user_session_path, class: "btn btn-outline-danger me-md-2" %>
+              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
+            <% end %>
           </div>
           <%# ボタンここまで %>
         </div>
